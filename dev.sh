@@ -5,6 +5,11 @@ main() {
   # ZKsync Dev Setup
   curl -L https://raw.githubusercontent.com/matter-labs/zksync-era/main/docs/src/guides/setup-dev.sh | bash
 
+  # Setup Git
+  say "Setting up Git..."
+  git config --global user.name "Bruno França"
+  git config --global user.email "bruno@franca.xyz"
+
   # Cargo-deny (for era-consensus)
   say "Installing Cargo-deny..."
   cargo install cargo-deny --locked

@@ -32,10 +32,6 @@ main() {
   rm -f packages.microsoft.gpg
   sudo apt update
   sudo apt install --yes code
-
-  # OhMyBash
-  say "Installing OhMyBash..."
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 }
 
 say() {

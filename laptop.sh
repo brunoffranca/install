@@ -38,21 +38,6 @@ main() {
   
   ## Dev software ##
 
-  # Setup Git
-  say "Setting up Git..."
-  git config --global user.name "Bruno França"
-  git config --global user.email "bruno@franca.xyz"
-
-  # Dev packages
-  say "Installing dev packages..."
-  sudo apt update
-  sudo apt install --yes gh build-essential libssl-dev
-
-  # Rust
-  say "Installing Rust..."
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
-  source "$HOME/.cargo/env"
-
   # VS Code
   say "Installing VS Code..."
   sudo apt install --yes wget gpg

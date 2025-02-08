@@ -14,7 +14,7 @@ main() {
   # SQL tools
   say "Installing SQLx CLI..."
   cargo install sqlx-cli --version 0.8.1
-  # For running unit tests
+  # Cargo Nextest (for running unit tests)
   say "Installing Nextest..."
   cargo install cargo-nextest --locked
   # Cargo-deny (for era-consensus)
@@ -78,6 +78,10 @@ main() {
   rm -f packages.microsoft.gpg
   sudo apt update
   sudo apt install --yes code
+
+  # OhMyBash
+  say "Installing OhMyBash..."
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
   say "Installation complete!"
 }

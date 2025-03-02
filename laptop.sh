@@ -35,17 +35,24 @@ main() {
   rclone config create proton protondrive user=brunoffranca@protonmail.com pass=$(rclone obscure "$password")
   rclone sync proton:Thinkpad Proton # First sync here
   (crontab -l; echo "0 * * * * rclone sync Proton proton:Thinkpad") | crontab -
+
+  # Proton VPN
+  say "Installing Proton VPN..."
+  wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.6_all.deb
+  sudo dpkg -i ./protonvpn-stable-release_1.0.6_all.deb && sudo apt update
+  sudo apt install proton-vpn-gnome-desktop
+  sudo apt install libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 gnome-shell-extension-appindicator
   
   ## Dev software ##
 
   # VS Code
-  say "Installing VS Code..."
-  sudo apt install --yes wget gpg
-  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-  sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-  echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
-  rm -f packages.microsoft.gpg
-  sudo apt install --yes code
+  # say "Installing VS Code..."
+  # sudo apt install --yes wget gpg
+  # wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+  # sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+  # echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
+  # rm -f packages.microsoft.gpg
+  # sudo apt install --yes code
 
   # gcloud CLI
   say "Installing gcloud CLI..."

@@ -40,6 +40,12 @@ main() {
   sudo dpkg -i ./protonvpn-stable-release_1.0.6_all.deb && sudo apt update
   sudo apt install proton-vpn-gnome-desktop
   sudo apt install libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 gnome-shell-extension-appindicator
+
+  # Bing Wallpaper
+  say "Installing Bing Wallpaper..."
+  sudo apt install gnome-shell-extension-manager
+  gnome-extensions install BingWallpaper@ineffable-gmail.com
+  gnome-extensions enable BingWallpaper@ineffable-gmail.com
 }
 
 say() {

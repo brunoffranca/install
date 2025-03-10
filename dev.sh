@@ -62,7 +62,7 @@ main() {
   sudo apt install --yes google-cloud-cli
 
   # ZKsync Dev Setup
-  zksync()
+  zksync
 
   # Clone repos
   say "Cloning ZKsync repositories..."

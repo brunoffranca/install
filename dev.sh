@@ -4,9 +4,6 @@
 main() {
   ## Personal software ##
 
-  sudo apt update
-  sudo apt install --yes curl
-
   # Brave
   say "Installing Brave..."
   sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg

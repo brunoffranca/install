@@ -44,6 +44,10 @@ main() {
   # Bing Wallpaper
   say "Installing Bing Wallpaper..."
   sudo apt install --yes gnome-shell-extension-manager
+
+  # OhMyBash
+  say "Installing OhMyBash..."
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 }
 
 say() {

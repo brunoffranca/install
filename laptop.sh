@@ -5,7 +5,7 @@ main() {
   # Packages
   say "Installing packages..."
   sudo apt update
-  sudo apt install --yes curl transmission libreoffice-calc libreoffice-writer
+  sudo apt install --yes transmission libreoffice-calc libreoffice-writer
 
   # Brave
   say "Installing Brave..."

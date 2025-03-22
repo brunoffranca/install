@@ -16,7 +16,7 @@ main() {
   say "Setting up Rclone..."
   read -s -p "Proton password: " password
   echo
-  rclone config create proton protondrive user=brunoffranca@protonmail.com pass=$(rclone obscure "$password")
+  rclone config create proton protondrive username=brunoffranca password=$(rclone obscure "$password")
   rclone sync proton:Thinkpad Proton # First sync here
   (crontab -l; echo "0 * * * * rclone sync Proton proton:Thinkpad") | crontab -
 
@@ -29,17 +29,16 @@ main() {
 
   # Spotify
   say "Installing Spotify..."
-  curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
-  echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+  curl -sS https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+  echo "deb https://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
   sudo apt update
   sudo apt install --yes spotify-client
 
   # Proton VPN
   say "Installing Proton VPN..."
-  wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.6_all.deb
-  sudo dpkg -i ./protonvpn-stable-release_1.0.6_all.deb && sudo apt update
-  sudo apt install --yes proton-vpn-gnome-desktop
-  sudo apt install --yes libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 gnome-shell-extension-appindicator
+  wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.8_all.deb
+  sudo dpkg -i ./protonvpn-stable-release_1.0.8_all.deb && sudo apt update
+  sudo apt install --yes proton-vpn-gnome-desktop libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 gnome-shell-extension-appindicator
 
   # Bing Wallpaper
   say "Installing Bing Wallpaper..."

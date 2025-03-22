@@ -5,7 +5,7 @@ main() {
   # All necessary stuff
   say "Installing apt dependencies..."
   sudo apt update
-  sudo apt install --yes curl git software-properties-common
+  sudo apt install --yes git software-properties-common
 
   # Install Docker
   say "Installing Docker..."

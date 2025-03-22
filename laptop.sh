@@ -7,6 +7,19 @@ main() {
   sudo apt update
   sudo apt install --yes transmission libreoffice-calc libreoffice-writer
 
+  # Installing Rclone
+  say "Installing Rclone..."
+  sudo apt install --yes unzip
+  curl https://rclone.org/install.sh | sudo bash
+
+  # Setup Rclone
+  say "Setting up Rclone..."
+  read -s -p "Proton password: " password
+  echo
+  rclone config create proton protondrive user=brunoffranca@protonmail.com pass=$(rclone obscure "$password")
+  rclone sync proton:Thinkpad Proton # First sync here
+  (crontab -l; echo "0 * * * * rclone sync Proton proton:Thinkpad") | crontab -
+
   # Brave
   say "Installing Brave..."
   sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
@@ -21,19 +34,6 @@ main() {
   sudo apt update
   sudo apt install --yes spotify-client
 
-  # Installing Rclone
-  say "Installing Rclone..."
-  sudo apt install --yes unzip
-  curl https://rclone.org/install.sh | sudo bash
-
-  # Setup Rclone
-  say "Setting up Rclone..."
-  read -s -p "Proton password: " password
-  echo
-  rclone config create proton protondrive user=brunoffranca@protonmail.com pass=$(rclone obscure "$password")
-  rclone sync proton:Thinkpad Proton # First sync here
-  (crontab -l; echo "0 * * * * rclone sync Proton proton:Thinkpad") | crontab -
-
   # Proton VPN
   say "Installing Proton VPN..."
   wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.6_all.deb
@@ -44,10 +44,6 @@ main() {
   # Bing Wallpaper
   say "Installing Bing Wallpaper..."
   sudo apt install --yes gnome-shell-extension-manager
-
-  # OhMyBash
-  say "Installing OhMyBash..."
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 }
 
 say() {

@@ -11,10 +11,10 @@ main() {
   say "Installing Rust..."
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
   source "$HOME/.cargo/env"
-  # SQL tools
+  # SQLx
   say "Installing SQLx CLI..."
   cargo install sqlx-cli --version 0.8.1
-  # Cargo Nextest (for running unit tests)
+  # Cargo Nextest
   say "Installing Nextest..."
   cargo install cargo-nextest --locked
   # Cargo-deny (for era-consensus)

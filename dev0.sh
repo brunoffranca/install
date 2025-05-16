@@ -4,6 +4,11 @@
 main() {
   ## Personal software ##
 
+  # Packages
+  say "Installing packages..."
+  sudo apt update
+  sudo apt install --yes libfuse2t64
+
   # Brave
   say "Installing Brave..."
   sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg

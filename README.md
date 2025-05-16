@@ -22,7 +22,7 @@ curl https://raw.githubusercontent.com/brunoffranca/install/main/dev2.sh | bash
 
 Then:
 1. Everything in Laptop (except the script).
-2. Install Cursor.
+2. Install Cursor (https://github.com/jorcelinojunior/cursor-setup-wizard and config in my gists) 
 3. Log into Github CLI with "gh auth login".
 4. Setup Google cloud with "gcloud init".
 

@@ -1,5 +1,6 @@
 # Laptop
 Run this command:
+
 curl https://raw.githubusercontent.com/brunoffranca/install/main/laptop.sh | bash
 
 Then:
@@ -12,8 +13,11 @@ Then:
 
 # Dev machine
 Run these commands sequentially and follow instructions at the end of each one:
+
 curl https://raw.githubusercontent.com/brunoffranca/install/main/dev0.sh | bash
+
 curl https://raw.githubusercontent.com/brunoffranca/install/main/dev1.sh | bash
+
 curl https://raw.githubusercontent.com/brunoffranca/install/main/dev2.sh | bash
 
 Then:
@@ -24,4 +28,5 @@ Then:
 
 # Node
 Run this command:
+
 curl https://raw.githubusercontent.com/brunoffranca/install/main/node.sh | bash

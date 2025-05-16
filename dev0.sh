@@ -11,20 +11,6 @@ main() {
   sudo apt update
   sudo apt install --yes brave-browser
 
-  # Spotify
-  say "Installing Spotify..."
-  curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
-  echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-  sudo apt update
-  sudo apt install --yes spotify-client
-
-  # Proton VPN
-  say "Installing Proton VPN..."
-  wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.6_all.deb
-  sudo dpkg -i ./protonvpn-stable-release_1.0.6_all.deb && sudo apt update
-  sudo apt install --yes proton-vpn-gnome-desktop
-  sudo apt install --yes libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 gnome-shell-extension-appindicator
-
   # Bing Wallpaper
   say "Installing Bing Wallpaper..."
   sudo apt install --yes gnome-shell-extension-manager

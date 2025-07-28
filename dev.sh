@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-### Dev Box Setup 0 ###
+### Dev Box Setup ###
 main() {
   ## Personal software ##
 
   # Packages
   say "Installing packages..."
   sudo apt update
-  sudo apt install --yes libfuse2t64
+  sudo apt install --yes build-essential libfuse2t64
 
   # Brave
   say "Installing Brave..."
@@ -39,14 +39,17 @@ main() {
   sudo apt update
   sudo apt install --yes sublime-merge
 
-  # gcloud CLI
-  say "Installing gcloud CLI..."
-  sudo apt install --yes apt-transport-https ca-certificates gnupg curl
-  curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
-  echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-  sudo apt update
-  sudo apt install --yes google-cloud-cli
-
+  # Rust
+  say "Installing Rust..."
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
+  source "$HOME/.cargo/env"
+  # Cargo-nextest
+  say "Installing cargo-nextest..."
+  cargo install cargo-nextest --locked
+  # Cargo-deny
+  say "Installing cargo-deny..."
+  cargo install cargo-deny --locked
+  
   # OhMyBash
   say "Installing OhMyBash..."
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
